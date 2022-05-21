@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] float rotationThrust = 1f;
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem LeftThrusterParticles;
+    [SerializeField] ParticleSystem RightThrusterParticles;
+
     Rigidbody2D rb;
     AudioSource audioSource;
 
@@ -27,15 +31,29 @@ public class Player : MonoBehaviour
         ProcessRotation();
     }
 
-    private void ProcessRotation()
+    void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
             ApplyRotation(rotationThrust);
+            if (!LeftThrusterParticles.isPlaying)
+            {
+                LeftThrusterParticles.Play();
+            }
+
         }
         else if (Input.GetKey(KeyCode.D))
         {
             ApplyRotation(-rotationThrust);
+            if (!RightThrusterParticles.isPlaying)
+            {
+                RightThrusterParticles.Play();
+            }
+        }
+        else
+        {
+            RightThrusterParticles.Stop();
+            LeftThrusterParticles.Stop();
         }
     }
 
@@ -56,10 +74,15 @@ public class Player : MonoBehaviour
             {
                 audioSource.PlayOneShot(mainEngine);
             }
+            if (!mainEngineParticles.isPlaying)
+            {
+                mainEngineParticles.Play();
+            }
         }
         else
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 }

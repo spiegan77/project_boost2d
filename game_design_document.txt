@@ -1,0 +1,86 @@
+https://itch.io/jam/gamedevtv-jam-2022
+
+TODO:
+START AT HOW TO TRIGGER PARTICLES
+Add BOUNDARIES from the Laser Defender section
+Add CINEMACHINE with edges from the Platformer section
+Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
+  Maybe use Switch Statemenmts to create an invisible “Gate” that could trigger switching Physics On/Off
+Instead of looping to first level - have an End Screen
+
+Audio:
+Video 41 - Should just be able to swap the audio clip being used by Audio Source on the PlayerShip
+
+Sources Used:
+
+https://www.youtube.com/watch?v=uAOn0X6oWmU
+  @ 4:00 he mentions using a character controller
+  --Check Brackeys
+
+Laser Defender:
+  Project Setup - Player Input Package - Bailed on this for now
+    Also will be good for getting Assets from Kenney
+  Unity Input System
+  BOUNDARIES - NOT IMPLEMENTED YET
+
+Project Boost:
+  Basic Input Binding
+  Rigidbody Constraints - Plays around with gravity and discusses how to simulate wind, but I'm not sure it's what I want
+  Switch Statements
+
+https://csharp.hotexamples.com/examples/UnityEngine/Rigidbody2D/AddRelativeForce/php-rigidbody2d-addrelativeforce-method-examples.html
+ // Use this for initialization
+ void Start()
+ {
+     r2d = GetComponent<Rigidbody2D> ();
+     if(Movimentacao.left){
+         r2d.AddRelativeForce (new Vector2 (-speed, 0));
+     }else{
+         r2d.AddRelativeForce (new Vector2 (speed, 0));
+     }
+ }
+
+
+---------------------------------------
+ASSETS
+==================
+https://opengameart.org/
+https://game-icons.net/
+https://gamesounds.xyz/
+https://freesound.org/
+https://kenney.nl/
+
+Creativity
+==================
+https://tools.kenney.nl/kenney-shape/
+https://assetforge.io/
+https://ephtracy.github.io/
+https://inkscape.org/
+https://libresprite.github.io/#!/
+https://www.photopea.com/
+https://www.mindtools.com/pages/article/newCT_02.htm
+https://color.adobe.com/create/color-wheel
+https://colorhunt.co/
+https://www.artbreeder.com/
+
+Source Control
+====================
+https://about.gitlab.com/#
+https://www.sourcetreeapp.com/
+
+Podcasts
+=====================
+https://thespelunkyshowlike.libsyn.com/
+https://www.idlethumbs.net/designernotes/
+https://keithburgun.net/category/podcast/
+https://www.youtube.com/c/Gdconf/videos
+
+Marketing
+====================
+https://gameanalytics.com/
+https://ezgif.com/optimize
+
+Engines
+==================
+https://www.construct.net/en
+https://godotengine.org/
