@@ -35,54 +35,79 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrust);
-            if (!LeftThrusterParticles.isPlaying)
-            {
-                LeftThrusterParticles.Play();
-            }
+            RotateLeft();
 
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThrust);
-            if (!RightThrusterParticles.isPlaying)
-            {
-                RightThrusterParticles.Play();
-            }
+            RotateRight();
         }
         else
         {
-            RightThrusterParticles.Stop();
-            LeftThrusterParticles.Stop();
+            StopRotation();
         }
     }
 
-    private void ApplyRotation(float rotationThisFrame)
+    void RotateRight()
+    {
+        ApplyRotation(-rotationThrust);
+        if (!RightThrusterParticles.isPlaying)
+        {
+            RightThrusterParticles.Play();
+        }
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationThrust);
+        if (!LeftThrusterParticles.isPlaying)
+        {
+            LeftThrusterParticles.Play();
+        }
+    }
+
+    void StopRotation()
+    {
+        RightThrusterParticles.Stop();
+        LeftThrusterParticles.Stop();
+    }
+
+    void ApplyRotation(float rotationThisFrame)
     {
         rb.freezeRotation = true; // freezing rotation so we can manually rotate
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false;
     }
 
-    private void ProcessThrust()
+    void ProcessThrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            // Not sure if I prefer this shorthand or not
-            rb.AddRelativeForce(Vector2.up * mainThrust * Time.deltaTime); // rb.AddRelativeForce(new Vector2(0,1))
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-            if (!mainEngineParticles.isPlaying)
-            {
-                mainEngineParticles.Play();
-            }
+            StartThrusting();
         }
         else
         {
-            audioSource.Stop();
-            mainEngineParticles.Stop();
+            StopThrusting();
+        }
+    }
+
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        mainEngineParticles.Stop();
+    }
+
+    void StartThrusting()
+    {
+        // Not sure if I prefer this shorthand or not
+        rb.AddRelativeForce(Vector2.up * mainThrust * Time.deltaTime); // rb.AddRelativeForce(new Vector2(0,1))
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!mainEngineParticles.isPlaying)
+        {
+            mainEngineParticles.Play();
         }
     }
 }
