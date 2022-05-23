@@ -10,7 +10,7 @@ Add pushable objects and maybe a secret or two
 Start Screen / End Screen - Very basic but add paralax scrolling later
   How to get to the End Screen? Maybe a different Tag on the Final Landing Pad??
   Add Rigidbody to Letters and Have them fall when the button is hit
-Add BOUNDARIES from the Laser Defender section
+  Add Rick's Dad joke as a Secret on the Start Screen
 Add CINEMACHINE with edges from the Platformer section
 Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
   Maybe use Switch Statemenmts to create an invisible “Gate” that could trigger switching Physics On/Off
