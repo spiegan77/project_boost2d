@@ -1,9 +1,15 @@
 https://itch.io/jam/gamedevtv-jam-2022
 
 TODO:
-START AT HOW TO TRIGGER PARTICLES
+START AT 
+Add Cinemachine Camera
+  TEST PREFABBING THE FOLLOW CAMERA - Have to add CinemachineBrain component to the Main Camera
+  May need to play with Dead Zone Width/Height
+Maybe Add Boundaries
+Add pushable objects and maybe a secret or two
 Start Screen / End Screen - Very basic but add paralax scrolling later
   How to get to the End Screen? Maybe a different Tag on the Final Landing Pad??
+  Add Rigidbody to Letters and Have them fall when the button is hit
 Add BOUNDARIES from the Laser Defender section
 Add CINEMACHINE with edges from the Platformer section
 Have Collisions trigger Gravity Off/On (Maybe from the Obstacle Course?)
