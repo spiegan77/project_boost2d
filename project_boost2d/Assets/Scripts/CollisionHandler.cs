@@ -55,10 +55,28 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("I'm finish. like the crackers");
                 StartSuccessSequence();
                 break;
+            case "Start":
+                LoadFirstLevel();
+                break;
             default:
                 StartCrashSequence();
                 break;
         }
+    }
+
+    void StartMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    void LoadFirstLevel()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        successParticles.Play();
+        GetComponent<Player>().enabled = false;
+        Invoke("StartMenu", LoadLevelDelay);
     }
 
     void StartSuccessSequence()
@@ -85,6 +103,11 @@ public class CollisionHandler : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
+        /*
+        NOTE: I think all I need to do is Comment out the following code
+        in order to progress to progress to the Game Over screen
+        UPDATED NOTE: I don't actually need to comment out the following code, but probably should
+        */
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0;
