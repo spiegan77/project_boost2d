@@ -1,0 +1,11 @@
+LEVEL DESIGN IDEAS
+
+---LEVEL 01---
+Player starts out in the middle
+Tries to fly
+Hitting STart Button instead ---- Walls close in (tagged with a unique tag to disable thrust)
+Player falls down a long tunnel
+TODO: I'm trying to figure out to disable the Cinemachine Confiner when I collide with the Start Button
+When they land Thrust is re-enabled (tagged object)
+	Can that tagged object also enable a Box Collider/ Renderer
+Player has to fly to checkpoint

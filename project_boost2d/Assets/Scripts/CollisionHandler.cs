@@ -17,6 +17,8 @@ public class CollisionHandler : MonoBehaviour
     bool isTransitioning = false;
     bool collisionDisable = false;
 
+    
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -56,7 +58,8 @@ public class CollisionHandler : MonoBehaviour
                 StartSuccessSequence();
                 break;
             case "Start":
-                LoadFirstLevel();
+                GroundExplode();
+                //LoadFirstLevel();
                 break;
             default:
                 StartCrashSequence();
@@ -64,19 +67,23 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    void StartMenu()
+    void GroundExplode()
     {
-        SceneManager.LoadScene(1);
-    }
-
-    void LoadFirstLevel()
-    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Friendly");
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        GameObject starty = GameObject.FindGameObjectWithTag("Start");
+        Destroy(starty);
+        //Trying to disable Cinemachine Confiner.cs
+        //GameObject confiner = GameObject.FindGameObjectWithTag("FCam"); //TODO: Create FCam Tag
+        //confiner.GetComponent<CinemachineConfiner>().enabled = false;
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
         GetComponent<Player>().enabled = false;
-        Invoke("StartMenu", LoadLevelDelay);
     }
 
     void StartSuccessSequence()
@@ -120,4 +127,22 @@ public class CollisionHandler : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+
+    /* // I used this code for the Start Menu, but now use the tags for the disappearing floor
+    void StartMenu()
+    {
+        // How to disable Ground and Launch Pad in Code
+        SceneManager.LoadScene(1); // DELETE this line
+    }
+
+    void LoadFirstLevel()
+    {
+        isTransitioning = true;
+        audioSource.Stop();
+        audioSource.PlayOneShot(success);
+        successParticles.Play();
+        GetComponent<Player>().enabled = false;
+        Invoke("StartMenu", LoadLevelDelay);
+    }
+    */
 }
