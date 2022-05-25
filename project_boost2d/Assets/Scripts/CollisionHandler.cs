@@ -58,8 +58,8 @@ public class CollisionHandler : MonoBehaviour
                 StartSuccessSequence();
                 break;
             case "Start":
-                GroundExplode();
-                //LoadFirstLevel();
+                //GroundExplode();
+                LoadFirstLevel();
                 break;
             default:
                 StartCrashSequence();
@@ -67,23 +67,20 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    void GroundExplode()
+    // I used this code for the Start Menu, but now use the tags for the disappearing floor
+    void StartMenu()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Friendly");
-        foreach(GameObject enemy in enemies)
-        {
-            Destroy(enemy);
-        }
-        GameObject starty = GameObject.FindGameObjectWithTag("Start");
-        Destroy(starty);
-        //Trying to disable Cinemachine Confiner.cs
-        //GameObject confiner = GameObject.FindGameObjectWithTag("FCam"); //TODO: Create FCam Tag
-        //confiner.GetComponent<CinemachineConfiner>().enabled = false;
+        SceneManager.LoadScene(1);
+    }
+
+    void LoadFirstLevel()
+    {
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
         GetComponent<Player>().enabled = false;
+        Invoke("StartMenu", LoadLevelDelay);
     }
 
     void StartSuccessSequence()
@@ -112,7 +109,7 @@ public class CollisionHandler : MonoBehaviour
         int nextSceneIndex = currentSceneIndex + 1;
         /*
         NOTE: I think all I need to do is Comment out the following code
-        in order to progress to progress to the Game Over screen
+        in order to progress to the Game Over screen
         UPDATED NOTE: I don't actually need to comment out the following code, but probably should
         */
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
@@ -128,21 +125,23 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    /* // I used this code for the Start Menu, but now use the tags for the disappearing floor
-    void StartMenu()
-    {
-        // How to disable Ground and Launch Pad in Code
-        SceneManager.LoadScene(1); // DELETE this line
-    }
 
-    void LoadFirstLevel()
+    //Disabled because I couldn't get the fucking Follow Camera Active State to Switch
+    /*
+void GroundExplode()
+{
+    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Friendly");
+    foreach(GameObject enemy in enemies)
     {
-        isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(success);
-        successParticles.Play();
-        GetComponent<Player>().enabled = false;
-        Invoke("StartMenu", LoadLevelDelay);
+        Destroy(enemy);
     }
-    */
+    GameObject starty = GameObject.FindGameObjectWithTag("Start");
+    Destroy(starty);
+    isTransitioning = true;
+    audioSource.Stop();
+    audioSource.PlayOneShot(success);
+    successParticles.Play();
+    GetComponent<Player>().enabled = false;
+}
+*/
 }

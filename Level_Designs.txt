@@ -1,6 +1,7 @@
 LEVEL DESIGN IDEAS
 
----LEVEL 01---
+---START SCREEN---
+2D Course Simple Follow Camera *MIGHT* be a dirty fix for this issue
 Player starts out in the middle
 Tries to fly
 Hitting STart Button instead ---- Walls close in (tagged with a unique tag to disable thrust)
@@ -9,3 +10,13 @@ TODO: I'm trying to figure out to disable the Cinemachine Confiner when I collid
 When they land Thrust is re-enabled (tagged object)
 	Can that tagged object also enable a Box Collider/ Renderer
 Player has to fly to checkpoint
+
+---LEVEL 01---
+Landing Pad is blocked
+Player pushes a block that lands on a trigger that unblocks landing pad
+  Player can't land on the switch because they explode
+
+
+
+A cool mechanic might be dropping an object and then racing it to the finish
+if the object get there first the player explodes like a bitch
