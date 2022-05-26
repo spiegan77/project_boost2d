@@ -9,6 +9,7 @@ TagManager:
   - Start
   - Wall
   - Drop
+  - Wall02
   layers:
   - Default
   - TransparentFX

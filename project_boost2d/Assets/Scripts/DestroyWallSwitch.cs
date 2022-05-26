@@ -24,19 +24,15 @@ public class DestroyWallSwitch : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
-        //GetComponent<Switch>().enabled = false;
-        GameObject foo = GameObject.FindGameObjectWithTag("Wall");
+        GameObject foo = GameObject.FindGameObjectWithTag("Wall02");
         Destroy(foo, 1f);
-
-        //GameObject foo = GameObject.FindGameObjectsWithTag("Friendly");
-        //foreach (GameObject enemy in enemies)
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Wall")
-        {
-            Debug.Log("Wall");
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Wall")
+    //    {
+    //        Debug.Log("Wall");
+    //    }
+    //}
 }
