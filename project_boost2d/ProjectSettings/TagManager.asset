@@ -8,6 +8,7 @@ TagManager:
   - Friendly
   - Start
   - Wall
+  - Drop
   layers:
   - Default
   - TransparentFX

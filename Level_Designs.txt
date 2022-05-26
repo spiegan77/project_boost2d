@@ -16,6 +16,20 @@ Landing Pad is blocked
 Player pushes a block that lands on a trigger that unblocks landing pad
   Player can't land on the switch because they explode
 
+---Level 02---
+Trigger that enables/disables 
+  Gameobject X Sorta
+  Rigidbody X
+  Collider 
+Can i land on a platform and have it slowly fall?
+
+goal:
+Object1 is transparent and collider is off
+Trigger turns off transparent and turns on collider
+Object2 is visible inside Object1
+Trigger turns on gravity
+
+
 
 
 A cool mechanic might be dropping an object and then racing it to the finish

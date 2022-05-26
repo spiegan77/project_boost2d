@@ -1,0 +1,25 @@
+Toggle Renderer and Rigidbody
+public class Dropper : MonoBehaviour
+{
+    MeshRenderer renderer;
+    Rigidbody rd;
+    [SerializeField] float timeToWait = 3f;
+    
+    void Start()
+    {
+        renderer = GetComponent<MeshRenderer>();
+        rd = GetComponent<Rigidbody>();
+        renderer.enabled = false;
+        rd.useGravity = false;
+    }
+
+    void Update()
+    {
+        if(Time.time > timeToWait)
+        {
+            //Debug.Log($"{Time.time} seconds have elapsed");
+            renderer.enabled = true;
+            rd.useGravity = true;
+        }
+    }
+}
