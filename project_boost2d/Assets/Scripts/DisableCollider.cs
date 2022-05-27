@@ -1,35 +1,32 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisCollider : MonoBehaviour
+public class DisableCollider : MonoBehaviour
 {
+    /*
     [SerializeField] ParticleSystem successParticles;
     [SerializeField] AudioClip success;
 
-    public GameObject Manager;
-    public GameObject Manager02;
-
     AudioSource audioSource;
     bool isTransitioning = false;
+    */
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
-        //Fetch the GameObject's Collider (make sure it has a Collider component)
-        //m_Collider = GetComponent<Collider>();
+        //audioSource = GetComponent<AudioSource>();
     }
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isTransitioning) { return; }
+
+        //if (isTransitioning) { return; }
 
         switch (collision.gameObject.tag)
         {
             case "Player":
-                Debug.Log("Break Wall");
+                Debug.Log("Player Tag");
                 WallDestroy();
                 break;
             default:
@@ -45,14 +42,17 @@ public class DisCollider : MonoBehaviour
 
     void WallDestroy()
     {
+        Collider2D foo = GameObject.FindGameObjectWithTag("Wall02").GetComponent<BoxCollider2D>();
+        foo.enabled = false;
+        GameObject.FindGameObjectWithTag("Wall02").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        
+        // Commented out the sounds and particles because I'm tired of hearing the same shit
+        /*
         isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
-        Manager02.SetActive(false);
-        Manager.SetActive(true);
-        //I don't think I need these two lines of code:
-        GameObject foo = GameObject.FindGameObjectWithTag("Wall");
-        Destroy(foo, 1f);
+        */
+
     }
 }
