@@ -42,9 +42,9 @@ public class DisableCollider : MonoBehaviour
 
     void WallDestroy()
     {
-        Collider2D foo = GameObject.FindGameObjectWithTag("Wall02").GetComponent<BoxCollider2D>();
+        Collider2D foo = GameObject.FindGameObjectWithTag("Collider_Barrier").GetComponent<BoxCollider2D>();
         foo.enabled = false;
-        GameObject.FindGameObjectWithTag("Wall02").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
+        GameObject.FindGameObjectWithTag("Collider_Barrier").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
         
         // Commented out the sounds and particles because I'm tired of hearing the same shit
         /*

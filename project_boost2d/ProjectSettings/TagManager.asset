@@ -12,6 +12,9 @@ TagManager:
   - Wall02
   - FCam
   - MovingSwitch
+  - Collider_Barrier
+  - V_Switch
+  - Splode
   layers:
   - Default
   - TransparentFX

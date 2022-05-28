@@ -50,6 +50,9 @@ public class CollisionHandler : MonoBehaviour
             case "Friendly":
                 //Debug.Log("Friendly Deal");
                 break;
+            case "Drop":
+                //Debug.Log("Friendly Deal");
+                break;
             case "Obstacle":
                 //Debug.Log("This is an Obstacle");
                 break;
