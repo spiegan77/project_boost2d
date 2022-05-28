@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoverSwitch : MonoBehaviour
 {
-    public GameObject Manager;
-    public GameObject Manager02;
+    public GameObject Manager_Enable;
+    public GameObject Manager_Disable;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,7 +29,7 @@ public class MoverSwitch : MonoBehaviour
         //audioSource.Stop();
         //audioSource.PlayOneShot(success);
         //successParticles.Play();
-        Manager02.SetActive(false);
-        Manager.SetActive(true);
+        Manager_Enable.SetActive(true);
+        Manager_Disable.SetActive(false);
     }
 }

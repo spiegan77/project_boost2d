@@ -25,8 +25,8 @@ public class DisableCollider : MonoBehaviour
 
         switch (collision.gameObject.tag)
         {
-            case "Player":
-                Debug.Log("Player Tag");
+            case "Friendly":
+                //Debug.Log("Player Tag");
                 WallDestroy();
                 break;
             default:
