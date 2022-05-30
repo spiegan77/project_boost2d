@@ -64,6 +64,8 @@ public class CollisionHandler : MonoBehaviour
                 //GroundExplode();
                 LoadFirstLevel();
                 break;
+            case "MovingSwitch":
+                break;
             default:
                 StartCrashSequence();
                 break;
